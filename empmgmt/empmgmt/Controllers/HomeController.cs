@@ -42,11 +42,11 @@ namespace empmgmt.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //if (!Captcha.ValidateCaptchaCode(login.CaptchaCode, HttpContext))
-                    //{
-                    //    ViewBag.error = "!!Please Enter valid Captcha";
-                    //    return View();
-                    //}
+                    if (!Captcha.ValidateCaptchaCode(login.CaptchaCode, HttpContext))
+                    {
+                        ViewBag.error = "!!Please Enter valid Captcha";
+                        return View();
+                    }
 
                     if (_context.login_user.Any(a => a.login_user_name == login.UserName && a.login_password == login.Password))
                     {
