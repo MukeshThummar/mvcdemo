@@ -1,0 +1,48 @@
+﻿@model empmgmt.Models.EmployeeViewModel
+@{
+}
+
+<form method="post" action="AddUpdate">
+    @{
+        if (Model?.emp_id != null )
+        {
+            <div class="mb-3">
+                <label for="" class="form-label">Id</label>
+                <input type="text" class="form-control" asp-for="emp_id" readonly>
+            </div>
+        }
+    }
+
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="emp_name">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" asp-for="date_of_birth">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Date of Joining</label>
+        <input type="date" class="form-control" asp-for="joining_date">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Salary</label>
+        <input type="number" class="form-control" asp-for="salary">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Skills</label>
+        <input type="text" class="form-control" asp-for="skills">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Designation</label>
+        <input type="text" class="form-control" asp-for="designation">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="email_id">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

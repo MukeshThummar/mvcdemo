@@ -1,0 +1,72 @@
+﻿@model List<empmgmt.Models.db.view_employee>
+
+@{
+}
+<h2 class="float-start">Employess</h2>
+@*<a class="btn btn-primary btn-sm  float-end" href="Employee/addUpdate">Add New Employee</a>*@
+<div class="float-end">
+    <div class="input-group ">
+        <form asp-controller="Employee" asp-action="FileImport" class="me-sm-1" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="execlFile" id="formFileSm" accept=".xls, .xlsx">
+                </div>
+                <div class="input-group-append">
+                    <input class="btn btn-outline-secondary btn-sm " type="submit" value="Import" />
+                </div>
+            </div>
+        </form>
+        <div class="input-group-append me-sm-1">
+            <form method="post" asp-controller="Employee" asp-action="Export">
+                <input class="btn btn-outline-secondary btn-sm" type="submit" value="Export" />
+            </form>
+        </div>
+        <div class="input-group-append">
+            <a class="btn btn-primary btn-sm" href="Employee/addUpdate">Add New Employee</a>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Date of Joining</th>
+            <th>Salary</th>
+            <th>Skills</th>
+            <th>Designation</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.emp_id</td>
+                <td>@emp.emp_name</td>
+                <td>@emp.date_of_birth.ToString("dd/MM/yyyy")</td>
+                <td>@emp.joining_date.ToString("dd/MM/yyyy")</td>
+                <td>@emp.salary</td>
+                <td>@emp.skills</td>
+                <td>@emp.designation</td>
+                <td>@emp.email_id</td>
+                <td><a href="Employee/addUpdate/@emp.emp_id">Edit</a></td>
+                <td><a href="Employee/delete/@emp.emp_id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*@model ImportExcel.Models.ImportExcel
+
+<div id="viewContent">
+    <h3>@ViewBag.Result</h3>
+    @using (Html.BeginForm("Index", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.TextBoxFor(m => m.file, new { type = "file" })
+        <button id="submitButton" type="submit">Submit</button>
+        @Html.ValidationMessageFor(model => model.file)
+    }
+</div>*@

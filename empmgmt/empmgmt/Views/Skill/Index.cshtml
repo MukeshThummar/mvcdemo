@@ -1,0 +1,27 @@
+﻿@model List<empmgmt.Models.db.skills>
+
+@{
+}
+<h2 class="float-start">Skills</h2>
+<a class="btn btn-primary float-end" href="Skill/add">Add New Skill</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var skill in Model)
+        {
+            <tr>
+                <td>@skill.id</td>
+                <td>@skill.name</td>
+                <td><a href="Skill/update/@skill.id">Edit</a></td>
+                <td><a href="Skill/delete/@skill.id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
