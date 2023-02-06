@@ -1,0 +1,42 @@
+
+IF OBJECT_ID('[dbo].[emp_X_skill]') IS NULL
+BEGIN
+	SET ANSI_NULLS ON
+
+	SET QUOTED_IDENTIFIER ON
+
+	SET ANSI_PADDING ON
+
+	CREATE TABLE [dbo].[emp_X_skill](
+		[ID] [int] IDENTITY(1,1) NOT NULL,
+		[emp_id] [int] NOT NULL,
+		[skill_id] [int] NOT NULL
+	PRIMARY KEY CLUSTERED 
+	(
+		[ID] ASC
+	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+	) ON [PRIMARY]
+
+	SET ANSI_NULLS OFF
+
+	SET QUOTED_IDENTIFIER OFF
+
+	SET ANSI_PADDING OFF
+END
+
+
+IF OBJECT_ID('FK_dbo_emp_X_skill_emp_id') IS NULL
+BEGIN
+	ALTER TABLE [dbo].[emp_X_skill] WITH CHECK ADD CONSTRAINT [FK_dbo_emp_X_skill_emp_id] FOREIGN KEY([emp_id]) 
+	REFERENCES [dbo].[employee] ([emp_id])
+END
+GO
+
+
+IF OBJECT_ID('FK_dbo_emp_X_skill_skill_id') IS NULL
+BEGIN
+	ALTER TABLE [dbo].[emp_X_skill] WITH CHECK ADD CONSTRAINT [FK_dbo_emp_X_skill_skill_id] FOREIGN KEY([skill_id]) 
+	REFERENCES [dbo].[skills] ([id])
+END
+GO
+
