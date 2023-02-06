@@ -1,0 +1,38 @@
+﻿
+.login-container {
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+.login-form {
+    padding: 4%;
+    border-radius: 8px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-form h3 {
+    text-align: center;
+    color: #333;
+}
+
+.login-container form {
+    padding: 4%;
+}
+
+.btnlogin {
+    width: 51%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    cursor: pointer;
+    border: none;
+}
+
+.login-form .btnlogin {
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+
+.form-control{
+    margin-bottom:10px;
+}
