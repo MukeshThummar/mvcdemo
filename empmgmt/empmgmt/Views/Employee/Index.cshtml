@@ -1,9 +1,9 @@
 ﻿@model List<empmgmt.Models.db.view_employee>
 
 @{
+    ViewData["Title"] = "Employee";
 }
 <h2 class="float-start">Employess</h2>
-@*<a class="btn btn-primary btn-sm  float-end" href="Employee/addUpdate">Add New Employee</a>*@
 <div class="float-end">
     <div class="input-group ">
         <form asp-controller="Employee" asp-action="FileImport" class="me-sm-1" method="post" enctype="multipart/form-data">
@@ -53,8 +53,16 @@
                 <td>@emp.skills</td>
                 <td>@emp.designation</td>
                 <td>@emp.email_id</td>
-                <td><a href="Employee/addUpdate/@emp.emp_id">Edit</a></td>
-                <td><a href="Employee/delete/@emp.emp_id">Delete</a></td>
+                <td>
+                    <a href="Employee/addUpdate/@emp.emp_id">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="Employee/delete/@emp.emp_id">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>

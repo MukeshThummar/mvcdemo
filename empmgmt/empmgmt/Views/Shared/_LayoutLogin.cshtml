@@ -12,9 +12,10 @@
     <div>
         @RenderBody()
     </div>
-
-    <script>
-        $("#img-captcha").click(function () {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#img-captcha").click(function (event) {
+            event.preventDefault();
             resetCaptchaImage();
         });
 

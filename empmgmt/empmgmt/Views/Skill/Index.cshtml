@@ -1,6 +1,7 @@
 ﻿@model List<empmgmt.Models.db.skills>
 
 @{
+    ViewData["Title"] = "Skill";
 }
 <h2 class="float-start">Skills</h2>
 <a class="btn btn-primary float-end" href="Skill/add">Add New Skill</a>
@@ -19,8 +20,16 @@
             <tr>
                 <td>@skill.id</td>
                 <td>@skill.name</td>
-                <td><a href="Skill/update/@skill.id">Edit</a></td>
-                <td><a href="Skill/delete/@skill.id">Delete</a></td>
+                <td>
+                    <a href="Skill/update/@skill.id">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="Skill/delete/@skill.id">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>
